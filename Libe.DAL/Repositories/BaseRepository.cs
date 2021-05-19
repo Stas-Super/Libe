@@ -27,19 +27,19 @@ namespace Libe.DAL.Repositories
             await ctx.Set<T>().AddAsync(item);
         }
 
-        public async Task Delete(Tkey id)
+        public virtual async Task Delete(Tkey id)
         {
             var entity = await ctx.Set<T>().FirstOrDefaultAsync(t => t.Id.Equals(id));
             ctx.Set<T>().Remove(entity);
         }
 
-        public async Task<T> Get(Tkey id)
+        public virtual async Task<T> Get(Tkey id)
         {
             var entity = await ctx.Set<T>().FirstOrDefaultAsync(t => t.Id.Equals(id));
             return entity;
         }
 
-        public async Task<List<T>> GetAll(Expression<Func<T, bool>> expression)
+        public virtual async Task<List<T>> GetAll(Expression<Func<T, bool>> expression)
         {
             if (expression == null)
             {
