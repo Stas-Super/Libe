@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Libe.Infrastructure.Bussines.Mapper
 {
-    public class MapProfile : Profile
+    public class MapProfile : AutoMapper.Profile
     {
         public MapProfile()
         {

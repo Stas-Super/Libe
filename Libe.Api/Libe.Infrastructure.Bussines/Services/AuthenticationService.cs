@@ -21,11 +21,13 @@ namespace Libe.Infrastructure.Bussines.Services
     {
         private readonly ApiDbContext _ctx;
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<Role> _roleManager;
         private readonly IOptions<JwtOptions> _jwtOptions;
         private readonly IMapper _mapper;
         public AuthenticationService(
             ApiDbContext ctx, 
             UserManager<User> userManager,
+            RoleManager<Role> roleManager,
             IOptions<JwtOptions> jwtOptions,
             IMapper mapper)
         {
@@ -39,15 +41,21 @@ namespace Libe.Infrastructure.Bussines.Services
         {
            var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
-               return new LogInResponseModel { VarificationResponse = "User not found" };
+               return new LogInResponseModel { Jwt = "User not found" };
+            await _ctx.Entry(user)
+                .Reference(c => c.Role)
+                .LoadAsync();
+            await _ctx.Entry(user)
+                .Reference(c => c.Profile)
+                .LoadAsync();
 
             var passwordVarification = _userManager.PasswordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
             if (passwordVarification == PasswordVerificationResult.Failed)
-                return new LogInResponseModel { VarificationResponse = "Password not valid" };
+                return new LogInResponseModel { Jwt = "Password not valid" };
 
             var jwt = Generate(user);
 
-            return new LogInResponseModel { User = user, VarificationResponse = jwt };
+            return new LogInResponseModel { User = user, Jwt = jwt };
         }
 
         private string Generate(User user)
@@ -68,19 +76,26 @@ namespace Libe.Infrastructure.Bussines.Services
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user != null)
-                return new RegistrationResponseModel { VarificationResult = "User allready created" };
+                return new RegistrationResponseModel { Jwt = "User allready created" };
 
             var userResponse = _mapper.Map<User>(model);
 
             _userManager.PasswordHasher.HashPassword(userResponse, model.Password);
+            await _userManager.GetSecurityStampAsync(userResponse);
+
+            await _userManager.AddToRoleAsync(userResponse, "Student");
+
+            user.Profile = new Domain.Core.Entities.Profile();
+            user.Profile.Cantry = model.Contry;
+            user.Profile.City = model.City;
+            user.Profile.Bearthday = model.Bearthday;
 
            await _userManager.CreateAsync(userResponse);
-
             await _ctx.SaveChangesAsync();
 
             var jwt = Generate(user);
 
-            return new RegistrationResponseModel { User = user, VarificationResult = jwt};
+            return new RegistrationResponseModel { User = user, Jwt = jwt};
         }
     }
 }

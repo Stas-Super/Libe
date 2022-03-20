@@ -1,0 +1,92 @@
+.login-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  background: #E5D2B6;
+}
+
+.login-body__input{
+  background: transparent;
+  border: none;
+  outline: none !important;
+  border-bottom: 1px solid #000000;
+}
+.login-body__input:active{
+  outline: none !important;
+}
+.login-body__email{
+  font-family: 'Montserrat Alternates', sans-serif;
+  color:#2D241F;
+}
+.login-body__password{
+  margin-top: 38px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #2D241F;
+  ;
+}
+.login-body__a{
+  text-align: center;
+  width: 100%;
+  background-color: transparent !important;
+}
+.login-body__submit{
+  height: 6vh;
+  border: 1px solid;
+  border-image-source: linear-gradient(92.43deg, rgba(253, 245, 219, 0.5) 7.76%, rgba(247, 240, 214, 0) 31.85%, rgba(61, 52, 23, 0) 56.73%, rgba(61, 52, 23, 0.5) 83.23%);
+  background: linear-gradient(271.51deg, #DBB270 0%, #BA945B 96.38%);
+  border-radius: 10px;
+  color: #F3F2EB;
+  font-size: 20px;
+}
+
+.login-body__h1{
+  color: #CC9730;
+  font-family: 'Yeseva One', cursive;
+  font-weight: normal;
+}
+.login-body__h4{
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #CC9730;
+  font-weight: normal;
+  margin-top: 37px;
+}
+
+.login-options{
+  background: #E5D2B6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px, 20px,0,0;
+}
+
+.login-options__h1{
+  color: #532E26;
+  z-index: 2;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 38px;
+}
+.login-options__p{
+  width: 50%;
+  z-index: 2;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #532E26;
+  white-space: pre-wrap;
+  text-align: center;
+}
+.login-options__button{
+  z-index: 2;
+  height: 8vh;
+  width: 25%;
+  background: #E9CD9D;
+  border:none;
+  box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.login-options__img{
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
+}

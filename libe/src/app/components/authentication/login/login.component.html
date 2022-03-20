@@ -1,13 +1,33 @@
-<div>
-  <div>
-    <label>Log in</label>
-    <input [(ngModel)]="email" type="text"/>
+<body>
+  <div class="container-fluid">
+     <div class="row">
+      <div class="col-6 login-body">
+        <form (submit)="login()" (change)="formOnChenge()" action="" method="|GET,POST|">
+          <div class="form-group">
+            <h1 class="login-body__h1">Libe</h1>
+          </div>
+          <div class="form-group">
+            <h4 class="login-body__h4">Войти</h4>
+          </div>
+          <div class="formn-group">
+            <label class="login-body__email">E-mail</label>
+            <input [(ngModel)]="email" type="text" name="email" class="form-control login-body__input" required>
+          </div>
+          <div class="form-group">
+            <label class="login-body__password">Пароль</label>
+            <input [(ngModel)]="password" type="password" name="password" class="form-control login-body__input" required>
+          </div>
+          <div class="form-group">
+            <a class="form-control login-body__a">Забыл пароль</a>
+          </div>
+          <button [disabled]="isFormEmpty" type="submit" class="login-body__submit offset-3 col-6 offset-3" name="submit_login">Войти</button>
+        </form>
+      </div>
+      <div class="col-6 login-options">
+          <h1 class="login-options__h1">Создать аккаунт?</h1>
+          <p class="login-options__p">Еще нет аккаунта? Аккаунт открывает новые возможности Будем рады вашей регистрации</p>
+          <button class="login-options__button">Регистрация</button>
+      </div>
+   </div>
   </div>
-  <div>
-    <label>Password</label>
-    <input [(ngModel)]="pass" type="password"/>
-  </div>
-  <div>
-    <button (click)="login()" type="submit">log in</button>
-  </div>
-</div>
+</body>

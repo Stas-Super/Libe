@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Auth } from '../models/auth/auth';
 import { BackendService } from './backend.service';
-
+import {UserResponseModel} from 'src/app/models/auth/login.response'
+import { LogInModel } from '../models/auth/login.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,7 @@ export class AuthService {
 
   }
 
-  login(model : Auth): Observable<any>{
+  login(model : LogInModel) : Observable<UserResponseModel>{
     return this.backendService.post('api/user/authentication/log-in', null, model);
   }
 }

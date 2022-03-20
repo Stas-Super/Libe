@@ -10,6 +10,6 @@ namespace Libe.Services.Interfaces.Models
     public class LogInResponseModel
     {
         public User User { get; set; }
-        public string VarificationResponse { get; set; }
+        public string Jwt { get; set; }
     }
 }

@@ -19,10 +19,11 @@ namespace Libe.Infrastructure.Bussines.Services
         public ServiceManager(
             ApiDbContext ctx,
             UserManager<User> userManager,
+            RoleManager<Role> roleManager,
             IOptions<JwtOptions> jwtOptions,
             IMapper mapper)
         {
-            _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationService(ctx,userManager,jwtOptions, mapper));
+            _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationService(ctx,userManager,roleManager,jwtOptions, mapper));
         }
 
         public IAuthenticationService AuthenticationService => _authenticationService.Value;
