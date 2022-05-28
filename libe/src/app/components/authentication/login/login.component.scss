@@ -12,6 +12,9 @@
   border: none;
   outline: none !important;
   border-bottom: 1px solid #000000;
+  &:invalid  {
+    border-color: red;
+  }
 }
 .login-body__input:active{
   outline: none !important;
@@ -55,38 +58,65 @@
 
 .login-options{
   background: #E5D2B6;
+  height: 100vh;
+}
+
+.login-options__background{
+  background-image: url(images/per.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 600px;
+}
+
+.login-options__div{
   display: flex;
-  flex-direction: column;
+  height: 25vh;
   justify-content: center;
+  margin: 38vh 0 0 0vw;
   align-items: center;
-  margin: 40px, 20px,0,0;
+  flex-direction: column;
 }
 
 .login-options__h1{
-  color: #532E26;
+  color: #F2EBDB;
   z-index: 2;
   font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 38px;
+  font-size: 28px;
 }
 .login-options__p{
   width: 50%;
   z-index: 2;
   font-family: 'Montserrat Alternates', sans-serif;
-  color: #532E26;
+  color: #F2EBDB;
   white-space: pre-wrap;
   text-align: center;
 }
 .login-options__button{
+  margin: 12vh auto 0 auto;
+  display: block;
   z-index: 2;
-  height: 8vh;
+  height: 6vh;
   width: 25%;
-  background: #E9CD9D;
-  border:none;
+  background: #9A8464;
+  color:#F2EBDB;
+  border: 3px solid;
+  border-image-source: linear-gradient(93.52deg, rgba(245, 239, 226, 0.5) 1.29%, rgba(245, 239, 226, 0.520833) 49.81%, rgba(245, 239, 226, 0.354167) 66.69%, rgba(245, 239, 226, 0.5) 102.56%);
   box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
-.login-options__img{
-  height: 100vh;
-  width: 100%;
-  z-index: 0;
+
+.login-options__button:focus{
+  outline: none;
+}
+
+.login-body__input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+@media screen and (min-width : 1280px) {
+  .login-options__button{
+    bottom: 200px;
+    right: 170px;
+  }
 }

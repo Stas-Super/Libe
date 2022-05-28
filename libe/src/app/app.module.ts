@@ -8,6 +8,7 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { BackendService } from './services/backend.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AuthService } from './services/auth.service';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

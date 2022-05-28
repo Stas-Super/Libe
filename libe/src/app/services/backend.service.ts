@@ -17,7 +17,6 @@ export class BackendService {
   }
 
   post(url : string, arg? : any, data?: any) : any{
-    debugger;
     this._http.post(`${this.baseHost}${url}`, JSON.stringify(data));
   }
 
