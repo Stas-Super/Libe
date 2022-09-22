@@ -1,0 +1,37 @@
+<body>
+  <div class="container-fluid">
+     <div class="row">
+      <div class="col-6 login-body">
+        <form [formGroup]="formGroup" (submit)="login()" (change)="formOnChenge()" action="" method="|GET,POST|">
+          <div class="form-group">
+            <h1 class="login-body__h1">Libe</h1>
+          </div>
+          <div class="form-group">
+            <h4 class="login-body__h4">Войти</h4>
+          </div>
+          <div class="formn-group">
+            <label class="login-body__email">E-mail</label>
+            <input [class.login-body__input:invalid]="formGroup.get('emailValidator')?.invalid && formGroup.get('passwordValidator')?.touched" formControlName="emailValidator" [(ngModel)]="email" type="email" name="email" class="form-control login-body__input" required>
+            <small *ngIf="formGroup.errors?.pattern" class="text-danger">Email is invalid</small>
+          </div>
+          <div class="form-group">
+            <label class="login-body__password">Пароль</label>
+            <input [class.login-body__input:invalid]="formGroup.get('passwordValidator')?.invalid && formGroup.get('passwordValidator')?.touched" formControlName="passwordValidator" [(ngModel)]="password" type="password" name="password" class="form-control login-body__input" required>
+            <small *ngIf="formGroup.get('passwordValidator')?.invalid && formGroup.get('passwordValidator')?.touched" class="text-danger">Password is invalid</small>
+          </div>
+          <div class="form-group">
+            <a class="form-control login-body__a">Забыл пароль</a>
+          </div>
+          <button [disabled]="!formGroup.valid" (click)="login()" type="submit" class="login-body__submit offset-3 col-6 offset-3" name="submit_login">Войти</button>
+        </form>
+      </div>
+      <div class="col-6 login-options login-options__background">
+        <div class="login-options__div">
+          <h4 class="login-options__h1">Создать аккаунт?</h4>
+          <p class="login-options__p">Еще нет аккаунта? Аккаунт открывает новые возможности Будем рады вашей регистрации</p>
+          <button class="login-options__button">Регистрация</button>
+        </div>
+      </div>
+   </div>
+  </div>
+</body>

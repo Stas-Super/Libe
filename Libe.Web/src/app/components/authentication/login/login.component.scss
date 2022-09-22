@@ -1,0 +1,128 @@
+.login-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  background: #E5D2B6;
+}
+
+.login-body__input{
+  background: transparent;
+  border: none;
+  outline: none !important;
+  border-bottom: 1px solid #000000;
+  &:invalid  {
+    border-color: red;
+  }
+}
+.login-body__input:active{
+  outline: none !important;
+}
+.login-body__email{
+  font-family: 'Montserrat Alternates', sans-serif;
+  color:#2D241F;
+}
+.login-body__password{
+  margin-top: 38px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #2D241F;
+  ;
+}
+.login-body__a{
+  text-align: center;
+  width: 100%;
+  background-color: transparent !important;
+}
+.login-body__submit{
+  height: 6vh;
+  width: 20vw;
+  border: 1px solid;
+  border-image-source: linear-gradient(92.43deg, rgba(253, 245, 219, 0.5) 7.76%, rgba(247, 240, 214, 0) 31.85%, rgba(61, 52, 23, 0) 56.73%, rgba(61, 52, 23, 0.5) 83.23%);
+  background: linear-gradient(271.51deg, #DBB270 0%, #BA945B 96.38%);
+  border-radius: 10px;
+  color: #F3F2EB;
+  font-size: 2.5vh;
+}
+
+.login-body__h1{
+  color: #CC9730;
+  font-family: 'Yeseva One', cursive;
+  font-weight: normal;
+}
+.login-body__h4{
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #CC9730;
+  font-weight: 900;
+  margin-top: 37px;
+  margin-bottom: 3vh;
+}
+
+.login-options{
+  background: #E5D2B6;
+  height: 100vh;
+}
+
+.login-options__background{
+  background-image: url(images/per.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 600px;
+}
+
+.login-options__div{
+  display: flex;
+  height: 25vh;
+  justify-content: center;
+  margin: 38vh 0 0 0vw;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-options__h1{
+  color: #F2EBDB;
+  margin-left: 50px;
+  margin-top: 17.5vh;
+  z-index: 2;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 28px;
+}
+.login-options__p{
+  width: 30vh;
+  margin-left: 50px;
+  z-index: 2;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #F2EBDB;
+  white-space: pre-wrap;
+  text-align: center;
+}
+.login-options__button{
+  margin: 12vh 0 0 70px;
+  padding: 1vh 0;
+  display: block;
+  z-index: 2;
+  height: 6vh;
+  width: 25%;
+  background: #9A8464;
+  color:#F2EBDB;
+  border: 3px solid;
+  border-image-source: linear-gradient(93.52deg, rgba(245, 239, 226, 0.5) 1.29%, rgba(245, 239, 226, 0.520833) 49.81%, rgba(245, 239, 226, 0.354167) 66.69%, rgba(245, 239, 226, 0.5) 102.56%);
+  box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.login-options__button:focus{
+  outline: none;
+}
+
+.login-body__input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+@media screen and (min-width : 1280px) {
+  .login-options__button{
+    bottom: 200px;
+    right: 170px;
+  }
+}
