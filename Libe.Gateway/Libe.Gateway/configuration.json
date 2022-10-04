@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44337
+          "Port": 7137
         }
       ],
       "UpstreamPathTemplate": "/gateway/account",

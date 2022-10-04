@@ -9,8 +9,11 @@ namespace Libe.AccountMicroservice.Domain.Models
 {
     public class User : IdentityUser<int>
     {
-        public int RoleId { get; set; }
-        public Role Role { get; set; }
+        public string RoleName { get; set; }
+        
+        public string RefreshToken { get; set; }
+        public DateTime RefreshTokenExpirce { get; set; }
+
         public int AccountId { get; set; }
         public Account Account { get; set; }
     }

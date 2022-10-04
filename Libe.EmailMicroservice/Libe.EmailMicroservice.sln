@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libe.EmailMicroservice", "Libe.EmailMicroservice\Libe.EmailMicroservice.csproj", "{743D4B53-95ED-497F-98B6-7CC5C631F0B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libe.EmailMicroservice.Api", "Libe.EmailMicroservice\Libe.EmailMicroservice.Api.csproj", "{743D4B53-95ED-497F-98B6-7CC5C631F0B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libe.EmailMicroservice.ApiServices", "Libe.EmailMicroservice.ApiServices\Libe.EmailMicroservice.ApiServices.csproj", "{3CC6304E-E345-4A2C-930F-B8FD20AE0E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libe.EmailMicroservice.Business", "Libe.EmailMicroservices.Business\Libe.EmailMicroservice.Business.csproj", "{4CDFA180-7520-41F7-8166-B799391D8100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libe.EmailMicroservice.Domain", "Libe.EmailMicroservice.Domain\Libe.EmailMicroservice.Domain.csproj", "{9FDA683F-CA61-4CDA-A0D2-0CE08FC02270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libe.EmailMicroservice.Tests", "Libe.EmailMicroservice.Tests\Libe.EmailMicroservice.Tests.csproj", "{CAED625B-8839-48C9-A45C-AA8A2E71808F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{743D4B53-95ED-497F-98B6-7CC5C631F0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{743D4B53-95ED-497F-98B6-7CC5C631F0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{743D4B53-95ED-497F-98B6-7CC5C631F0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC6304E-E345-4A2C-930F-B8FD20AE0E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC6304E-E345-4A2C-930F-B8FD20AE0E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC6304E-E345-4A2C-930F-B8FD20AE0E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC6304E-E345-4A2C-930F-B8FD20AE0E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDFA180-7520-41F7-8166-B799391D8100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDFA180-7520-41F7-8166-B799391D8100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDFA180-7520-41F7-8166-B799391D8100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDFA180-7520-41F7-8166-B799391D8100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDA683F-CA61-4CDA-A0D2-0CE08FC02270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDA683F-CA61-4CDA-A0D2-0CE08FC02270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDA683F-CA61-4CDA-A0D2-0CE08FC02270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDA683F-CA61-4CDA-A0D2-0CE08FC02270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAED625B-8839-48C9-A45C-AA8A2E71808F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAED625B-8839-48C9-A45C-AA8A2E71808F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAED625B-8839-48C9-A45C-AA8A2E71808F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAED625B-8839-48C9-A45C-AA8A2E71808F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

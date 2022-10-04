@@ -12,7 +12,6 @@ namespace Libe.AccountMicroservice.Domain.Models
         public string Photo { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public 
-
+        public string FamalyName { get; set; }
     }
 }
