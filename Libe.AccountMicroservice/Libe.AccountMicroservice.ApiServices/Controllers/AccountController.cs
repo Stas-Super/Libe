@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Libe.AccountMicroservice.ApiServices.Validators;
 using Libe.AccountMicroservice.Business.Dtos;
 using Libe.AccountMicroservice.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -28,20 +29,45 @@ namespace Libe.AccountMicroservice.ApiServices.Controllers
         [HttpPost("log-in")]
         public async Task<IActionResult> LogIn([FromForm] LogInDto dto)
         {
+           await LogInValidator
+                .Create()
+                .ValidateAsync(dto);
+
             var user = await _accountService.LogInAsync(dto);
 
             if(user == null)
                 return Unauthorized();
 
-            var jwt = _tokenService.GenerateAccessToken(user);
-            var refresh = _tokenService.GenerateRefreshToken();
+            var accessToken = _tokenService.GenerateAccessToken(user);
+            var refreshToken = _tokenService.GenerateRefreshToken();
 
             var userResponseDto = _mapper.Map<UserDto>(user);
-            userResponseDto.AccessToken = jwt;
-            userResponseDto.RefreshToken = refresh;
+            userResponseDto.AccessToken = accessToken;
+            userResponseDto.RefreshToken = refreshToken;
             userResponseDto.User = user;
 
             return Ok(userResponseDto);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromForm] RegisterDto dto)
+        {
+            var user = await _accountService.RegisterAsync(dto);
+
+            if (user != null)
+            {
+                return BadRequest("User already created");
+            }
+
+            var accessToken = _tokenService.GenerateAccessToken(user);
+            var refreshToken = _tokenService.GenerateRefreshToken();
+
+            var userResponse = _mapper.Map<UserDto>(user);
+            userResponse.AccessToken = accessToken;
+            userResponse.RefreshToken = refreshToken;
+            userResponse.User = user;
+
+            return Ok(userResponse);
         }
     }
 }

@@ -1,31 +1,31 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/account",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/user/account/log-in",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 7137
         }
       ],
-      "UpstreamPathTemplate": "/gateway/account",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ]
+      "UpstreamPathTemplate": "/account/log-in",
+      "UpstreamHttpMethod": [ "POST" ]
     },
     {
-      "DownstreamPathTemplate": "/api/product/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/user/account/register",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44337
+          "Port": 7137
         }
       ],
-      "UpstreamPathTemplate": "/gateway/product/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamPathTemplate": "/account/register",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE" ]
     },
     {
-      "DownstreamPathTemplate": "/api/customer",
+      "DownstreamPathTemplate": "/api/user/account/forgot-password",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -38,7 +38,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/customer/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -50,7 +50,7 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:44382"
+    "BaseUrl": "http://localhost:7171"
   }
 
 }

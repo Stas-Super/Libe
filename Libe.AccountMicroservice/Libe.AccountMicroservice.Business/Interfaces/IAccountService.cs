@@ -11,5 +11,6 @@ namespace Libe.AccountMicroservice.Business.Interfaces
     public interface IAccountService
     {
         Task<User> LogInAsync(LogInDto dto);
+        Task<User> RegisterAsync(RegisterDto dto);
     }
 }

@@ -5,7 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 var webHostBuilder = new WebHostBuilder();
 // Add services to the container.
 
-webHostBuilder.ConfigureAppConfiguration(app => app.AddJsonFile("configuration.json"));
+webHostBuilder.ConfigureAppConfiguration(app => 
+    app.AddJsonFile(
+        Path.Combine("configuration", "configuration.json")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,12 +25,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseOcelot().Wait();
+app.UseOcelot();
 
 app.MapControllers();
 

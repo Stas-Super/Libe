@@ -41,5 +41,26 @@ namespace Libe.AccountMicroservice.Business.Services
 
             return user;
         }
+
+        public async Task<User> RegisterAsync(RegisterDto dto)
+        {
+            var user = _mapper.Map<User>(dto);
+            user.Email = dto.Email;
+            user.PhoneNumber = dto.PhoneNumber;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, dto.Password);
+            user.Account = new Account
+            {
+                FamalyName = dto.FamalyName,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Photo = dto.Photo
+            };
+
+            await _userManager.CreateAsync(user);
+            
+            await _accountRepository.CreateAsync(user.Account);
+
+            return user;
+        }
     }
 }
